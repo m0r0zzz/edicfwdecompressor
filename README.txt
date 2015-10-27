@@ -9,3 +9,12 @@
  - Открыть файл проекта под именем "edicfwdecompressor.uvprojx" в IDE Keil
  - Произвести сборку проекта (Project->Build Target)
  - Выполнить п.1
+
+Утилиты, необходимые для работы скрипта:
+ - lzma
+ - datatoc
+ - edicidgenerator
+ - edickeygenerator
+ - edickeycomposer
+ - edicimage
+ - edictool
