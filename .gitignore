@@ -41,3 +41,28 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.exe
+edicapp-ng.bin.c
+*.lzma
+*.bin
+*.o
+*.d
+*.__i
+*.crf
+*.axf
+*._2i
+*.lst
+Listings/lzma.txt
+Listings/sys.txt
+Listings/main.txt
+*.Bak
+Objects/edicfwdecompressor.build_log.htm
+*.fed
+Objects/edicfwdecompressor.htm
+*.hex
+*.dep
+*.l2p
+*.lnp
+*.sct
+Listings/lzma.c
+*.map

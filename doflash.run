@@ -1,0 +1,25 @@
+#*reboot;
+ini f;
+
+#*erase nand;
+nae;
+
+#*write plan;
+eew plan.bin 0000;
+
+#*write id;
+eew id.bin 7FC0;
+
+#*write sreconf;
+eew sreconf.bin 7FE0;
+
+#*reboot;
+ini f;
+
+pau 400;
+
+sts f;
+
+bye;
+
+quit;

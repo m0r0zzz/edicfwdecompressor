@@ -1,0 +1,1 @@
+edictool COM5: doflash.run
