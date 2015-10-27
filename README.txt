@@ -15,6 +15,6 @@
  - datatoc
  - edicidgenerator
  - edickeygenerator
- - edickeycomposer
+ - edicplancomposer
  - edicimage
  - edictool
