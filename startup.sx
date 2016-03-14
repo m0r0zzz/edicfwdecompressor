@@ -161,7 +161,7 @@ delay_20ns
 sysmem_addr		DCD SYSMEM_BASE
 sysmem_size		DCD SYSMEM_SIZE
 regbase			DCD REG_BASE
-reg_ctrl_init	DCD 0x0001300e
+reg_ctrl_init	DCD 0x0001000e
 reg_ctrl_mask	DCD 0xfffe0000
 reg_p1_init		DCD 0x473
 		end

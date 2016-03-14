@@ -66,3 +66,4 @@ Objects/edicfwdecompressor.htm
 *.sct
 Listings/lzma.c
 *.map
+*.dll

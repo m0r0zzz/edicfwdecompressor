@@ -1,22 +1,37 @@
+DEF PLAN_ADDR 0000;
+DEF ID_ADDR 7FC0;
+DEF SREC_ADDR 7FE0;
+DEF HADDR1 0060;
+DEF HADDR2 1000;
+DEF HADDR3 1800;
+
 #*reboot;
 ini f;
 
-#*erase nand;
-nae;
+#*initializing it now;
+#* ;
 
 #*write plan;
-eew plan.bin 0000;
+eew PLAN_ADDR plan.bin;
 
 #*write id;
-eew id.bin 7FC0;
+eew ID_ADDR id.bin;
 
 #*write sreconf;
-eew sreconf.bin 7FE0;
+eew SREC_ADDR sreconf_nw.bin;
+
+#*write header;
+eew HADDR1 hrec.bin;
+eew HADDR2 hrec.bin;
+eew HADDR3 hrec.bin;
 
 #*reboot;
 ini f;
 
 pau 400;
+
+#*erase nand;
+nae;
 
 sts f;
 

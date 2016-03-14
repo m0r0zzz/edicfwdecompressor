@@ -1,1 +1,1 @@
-edicimage -a 0x1000 -b 115200 -p COM5: restart 1 fill 0 4096 00 write edicfwdecompressor.bin protect 0 restart 0
+edicimage -a 0x4000 -b 115200 -p COM5: restart 1 protect 0 fill 0 32768 00 write edicfwdecompressor.bin protect 0 restart 0

@@ -39,9 +39,52 @@ void uart_write(uint32_t data){
 	UART = data;
 }
 
+void delay_ms(uint32_t cnt){
+	//set_cpu_speed(HCLK_MODE_DIV64);
+	uint32_t t = TIMER + SYS_MS_DELAY_LOSC_CONST * cnt;
+	while(TIMER <= t);
+	//set_cpu_speed(HCLK_MODE_NODIV);
+}
+
+void morse_dot(){
+	CTRL |= LEDFLASH_MODE_MASK;
+	delay_ms(100);
+	CTRL &= ~LEDFLASH_MODE_MASK;
+	delay_ms(100);
+}
+
+void morse_dash(){
+	CTRL |= LEDFLASH_MODE_MASK;
+	delay_ms(300);
+	CTRL &= ~LEDFLASH_MODE_MASK;
+	delay_ms(100);
+}
+
+void error_loop(){
+	while(1){
+		wdt_rst(1);
+		CTRL |= LEDFLASH_MODE_MASK;
+		delay_ms(500);
+		CTRL &= ~LEDFLASH_MODE_MASK;
+		delay_ms(250);
+		CTRL |= LEDFLASH_MODE_MASK;
+		delay_ms(500);
+		CTRL &= ~LEDFLASH_MODE_MASK;
+		wdt_rst(1);
+		delay_ms(250);
+		CTRL |= LEDFLASH_MODE_MASK;
+		delay_ms(20);
+		CTRL &= ~LEDFLASH_MODE_MASK;
+		wdt_rst(1);
+		uart_write('F');
+		delay_ms(800);
+	}
+}
+
 void _unlzma_veneer(){
 	uart_write('D'); uart_write(' ');
-	unlzma((uint8_t *)code, (uint8_t *)SYSMEM_BASE, 16384);
+	int res = unlzma((uint8_t *)code, (uint8_t *)SYSMEM_BASE, 16384);
+	if(res != 0) error_loop();
 //	uart_write('S'); uart_write(' ');
 	long_jump_to_start();
 }
